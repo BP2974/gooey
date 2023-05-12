@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: white;
+                overflow: hidden;
+                filter: url(#gooey);
+            }
+            svg circle{
+                animation: anim 4s ease-in-out infinite;
+            }
+            svg circle.back{
+                border-radius: 50%;
+                z-index: -1;
+                filter: blur(25px);
+            }
+            @keyframes anim {
+                50%{
+                    cx: 50%
+                }
+            }   
+        </style>
+    </head>
+    <body>
+        <svg width="100%" height="100vh">
+            <defs>
+                <filter id="gooey">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+                    <feColorMatrix values="
+                    1 0 0 0 0
+                    0 1 0 0 0
+                    0 0 1 0 0
+                    0 0 0 25 -10
+                    "/>
+                </filter>
+                <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
+                    <stop offset="0%" stop-color="#8467B9" />
+                    <stop offset="100%" stop-color="#F0645C" />
+                </linearGradient>
+            </defs>
+            
+            <circle cx="40%" cy="50%" r="50" fill="url(#gradient)" />
+            <circle class="back" cx="40%" cy="50%" r="80" fill="url(#gradient)" />
+            <circle cx="60%" cy="50%" r="50" fill="url(#gradient)" />
+            <circle class="back" cx="60%" cy="50%" r="80" fill="url(#gradient)" />
+        </svg>
+    </body>
+</html>
