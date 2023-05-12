@@ -16,8 +16,11 @@
                 overflow: hidden;
                 filter: url(#gooey);
             }
-            svg circle{
+            .gooey1 circle{
                 animation: anim 4s cubic-bezier(0.59,-0.54, 0.34, 0.43) infinite;
+            }
+            .gooey2 circle{
+                animation: anim 4s cubic-bezier(0.15, 0.93, 0.8, 0.47) infinite;
             }
             svg circle.back{
                 border-radius: 50%;
@@ -44,16 +47,31 @@
                     "/>
                     <feBlend in="SourceGraphic" in2="gooey"/>
                 </filter>
-                <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
-                    <stop offset="0%" stop-color="#8467B9" />
-                    <stop offset="100%" stop-color="#F0645C" />
+
+                <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="100%">
+                    <stop offset="0%" stop-color="#74ebd5" />
+                    <stop offset="100%" stop-color="#B4A1DB" />
+                </linearGradient>
+
+                <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="100%">
+                    <stop offset="0%" stop-color="#E9565D" />
+                    <stop offset="100%" stop-color="#FFAF7B" />
                 </linearGradient>
             </defs>
             
-            <circle cx="40%" cy="50%" r="50" fill="url(#gradient)" />
-            <circle class="back" cx="40%" cy="50%" r="80" fill="url(#gradient)" />
-            <circle cx="60%" cy="50%" r="50" fill="url(#gradient)" />
-            <circle class="back" cx="60%" cy="50%" r="80" fill="url(#gradient)" />
+            <g class="gooey1">
+                <circle cx="40%" cy="30%" r="50" fill="url(#gradient1)" />
+                <circle class="back" cx="40%" cy="30%" r="80" fill="url(#gradient1)" />
+                <circle cx="60%" cy="30%" r="50" fill="url(#gradient1)" />
+                <circle class="back" cx="60%" cy="30%" r="80" fill="url(#gradient1)" /> 
+            </g>
+            
+            <g class="gooey2">
+                <circle cx="40%" cy="70%" r="50" fill="url(#gradient2)" />
+                <circle class="back" cx="40%" cy="70%" r="80" fill="url(#gradient2)" />
+                <circle cx="60%" cy="70%" r="50" fill="url(#gradient2)" />
+                <circle class="back" cx="60%" cy="70%" r="80" fill="url(#gradient2)" />
+            </g>
         </svg>
     </body>
 </html>
