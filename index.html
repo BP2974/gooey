@@ -17,7 +17,7 @@
                 filter: url(#gooey);
             }
             svg circle{
-                animation: anim 4s ease-in-out infinite;
+                animation: anim 4s cubic-bezier(0.33,-0.41, 0.71, 0.83) infinite;
             }
             svg circle.back{
                 border-radius: 50%;
@@ -35,13 +35,14 @@
         <svg width="100%" height="100vh">
             <defs>
                 <filter id="gooey">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
-                    <feColorMatrix values="
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+                    <feColorMatrix in="blur" result="gooey" values="
                     1 0 0 0 0
                     0 1 0 0 0
                     0 0 1 0 0
-                    0 0 0 25 -10
+                    0 0 0 30 -7
                     "/>
+                    <feBlend in="SourceGraphic" in2="gooey"/>
                 </filter>
                 <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="100%">
                     <stop offset="0%" stop-color="#8467B9" />
